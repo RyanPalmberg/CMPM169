@@ -1,58 +1,67 @@
-/*
-Gurkirat Saini
-gssaini
-Rats
-
-Instructions: Simply move the mouse across the screen like a slider and enjoy. 
-
-Music: https://www.youtube.com/watch?v=vdVnnMOTe3Q
-*/
-var rectLocation;
-function preload() {
-  rat = loadImage('assets/rat.png');
-  mixtape = loadSound('assets/mixtape.mp3');
-  bg = loadImage('assets/darats.png');
-  cheese = loadImage('assets/cheese.png');
-}
-
 function setup() {
-  createCanvas(600, 400);
-  // imageMode(CENTER);
-  mixtape.loop();
-  ratAmp = new p5.Amplitude();
-  rectLocation = createVector(width/2,height/2);
+  createCanvas(400, 400);
 }
 
 function draw() {
-  
-  var target = createVector(mouseX,mouseY);
-  var distance = target.dist(rectLocation);
-  var mappedDistance = map(distance, 100, 0, 1.5, 0.5);
-  target.sub(rectLocation);
-  target.normalize();
-  target.mult(mappedDistance);
-  rectLocation.add(target);
-  
-  background(bg);
-  //mouseX controls volume
-  // let volume = map(mouseX, 0, width, 0, 1);
-  let volume = map(distance, 0, width, 1, 0);
-  volume = constrain(volume, 0, 1);
-  mixtape.amp(volume);
-  // controls the rat in relation to the mouse
-  let ratWidth = 60;
-  // let ratHeight = ratAmp.getLevel() * height + ratWidth*2/3;
-  let ratHeight = ratAmp.getLevel() * ratWidth * 15;
-  
-  image(cheese, mouseX, mouseY, 80, 80)
-  translate(rectLocation.x, rectLocation.y);
-  // image(rat, mouseX-ratWidth/2, height/2-ratHeight/2, ratWidth, ratHeight);
-  image(rat, 0, 0, ratWidth, ratHeight);
-  
-  
+  
+  //sky
+  fill('#00cc00');
+  background('cyan');
+  
+  //sun
+  fill(255, 204, 100);
+  circle(30, 30, 35);
+  
+  // car shell
+  fill('#ff441c');
+  beginShape();
+  vertex(130, 210);
+  vertex(250, 210);
+  vertex(300, 250);
+  vertex(80, 250);
+  endShape(CLOSE);
+  
+  //cab
+  rect(60, 250, 260, 40)
+  
+  // window
+  fill('#f0f0f0');
+  beginShape();
+  vertex(135, 215);
+  vertex(235, 215);
+  vertex(270, 240);
+  vertex(110, 240);
+  endShape(CLOSE);
+  
 
-  
-  // rect(rectLocation.x, rectLocation.y, 10,10);
-  // image(rat, rectLocation.x * mouseX-ratWidth/2, rectLocation.y * height/2-ratHeight/2, ratWidth, ratHeight);
-  
+  // ground  
+  fill('#545454')
+  rect(0, 300, 400, 100);
+  
+  // headlight
+  fill(255, 204, 100);
+  rect(300, 250, 20, 10);
+  
+  //mirror
+  fill('#ff441c');
+  rect(260, 225, 10, 20);
+  
+  //tires
+  fill('#808080');
+  circle(100, 295, 33);
+  circle(270, 295, 33);
+  
+//   bird1
+  line(270, 20, 285, 25);
+  line(285, 25, 295, 30);
+  line(295, 30, 305, 25);
+  line(305, 25, 320, 20);
+  
+//   bird2
+  line(250, 40, 265, 45);
+  line(265, 45, 275, 50);
+  line(275, 50, 285, 45);
+  line(285, 45, 300, 40)
+
+  
 }
