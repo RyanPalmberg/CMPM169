@@ -1,0 +1,25 @@
+h1 {
+    font-size: 150%;
+    font-family: Times; color: Crimson;
+}
+h2 {
+  font-size: 100%;
+  font-family: Times; color: Black;
+}
+h3 {
+  font-size: 135%;
+  font-family: Times; color: Green;
+}
+
+p {
+    font-family: "Times";
+    text-indent: 20px;
+    margin-left: 10px;
+}
+#something {
+    width: 700px;
+    min-height: 200px;
+    padding: 5px;
+    margin: 10px;
+    font-size: 20px;
+}
